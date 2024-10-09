@@ -59,8 +59,8 @@ public class HotelReservation {
 
             // Menentukan apakah biaya lebih dari 2 juta dapat diskon (if-else)
             if (totalBiaya > 2000000) {
-                System.out.println("Anda mendapatkan diskon 5%!");
-                totalBiaya *= 0.5;
+                System.out.println("Anda mendapatkan diskon 10%!");
+                totalBiaya *= 0.9;
                 System.out.println("Total Biaya Setelah Diskon: Rp" + totalBiaya);
             } else {
                 System.out.println("Anda tidak mendapatkan diskon.");
