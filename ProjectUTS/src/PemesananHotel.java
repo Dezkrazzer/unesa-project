@@ -9,7 +9,7 @@ public class PemesananHotel {
 
             // Nama aplikasi
             System.out.println("===============================================");
-            System.out.println("          APLIKASI PEMESANAN HOTEL DELUNA   ");
+            System.out.println("          APLIKASI PEMESANAN HOTEL DELLUNA   ");
             System.out.println("===============================================");
 
             while (ulang) {
