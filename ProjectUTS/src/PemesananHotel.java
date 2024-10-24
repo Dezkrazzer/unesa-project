@@ -5,13 +5,13 @@ public class PemesananHotel {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             ArrayList<String> pemesanan = new ArrayList<>(); //Digunakan untuk menyimpan ringkasan pesanan
-            boolean ulang = true;
 
             // Nama aplikasi
             System.out.println("===============================================");
             System.out.println("          APLIKASI PEMESANAN HOTEL DELLUNA   ");
             System.out.println("===============================================");
-
+            
+            boolean ulang = true;
             while (ulang) {
                 // Input nama tamu (String)
                 System.out.print("Masukkan nama Anda: ");
