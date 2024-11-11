@@ -1,4 +1,3 @@
-import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -191,7 +190,7 @@ public class ClassCashManagementApp {
                     case 7 -> {
                         // Keluar dari aplikasi
                         running = false;
-                        out.println("Terima kasih telah menggunakan aplikasi ini.");
+                        System.out.println("Terima kasih telah menggunakan aplikasi ini.");
                     }
 
                     default -> System.out.println("Pilihan tidak valid, coba lagi.");
