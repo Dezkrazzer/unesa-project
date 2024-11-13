@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class ClassCashManagementApp {
     public static void main(String[] args) {
+
         // Nama aplikasi
         System.out.println("|==============================================|");
         System.out.println("|>>>                                        <<<|");
@@ -23,7 +24,8 @@ public class ClassCashManagementApp {
 
             // Looping aplikasi (while)
             while (running) {
-                // Tampilkan menu utama dalam format tabel/kotak
+
+                // Tampilkan menu utama dalam format
                 System.out.println("\n|==============================================|");
                 System.out.println("|>>               Menu Utama                 <<|");
                 System.out.println("|==============================================|");
@@ -46,15 +48,15 @@ public class ClassCashManagementApp {
 
                 // Pilihan menu menggunakan switch case
                 switch (pilihan) {
+
+                    // Tambah data siswa
                     case 1 -> {
-                        // Tambah data siswa
                         System.out.print("Masukkan nama siswa: ");
-                        scanner.nextLine(); // Membaca enter dari input sebelumnya
+                        scanner.nextLine();
                         String nama = scanner.nextLine();
                         
                         // Manipulasi string
                         System.out.println("Nama disimpan dengan huruf kapital: " + nama.toUpperCase());
-
                         System.out.print("Masukkan jumlah kas " + nama.toUpperCase() + ": " );
                         double kas = scanner.nextDouble();
                         
@@ -66,8 +68,8 @@ public class ClassCashManagementApp {
                         System.out.println("Data berhasil ditambahkan!");
                     }
 
+                    // Tambah kas pada siswa yang sama
                     case 2 -> {
-                        // Tambah kas pada siswa yang sama
                         if (namaSiswa.isEmpty()) {
                             System.out.println("Belum ada data siswa.");
                         } else {
@@ -94,11 +96,11 @@ public class ClassCashManagementApp {
                         }
                     }
 
+                    // Pengeluaran kas
                     case 3 -> {
-                        // Pengeluaran kas (mengurangi total kas tanpa mengubah data siswa)
                         System.out.print("Masukkan jumlah pengeluaran kas: ");
                         double pengeluaranKasAmount = scanner.nextDouble();
-                        scanner.nextLine(); // Consume the newline character after number input
+                        scanner.nextLine();
                         
                         System.out.print("Masukkan keterangan pengeluaran: ");
                         String keteranganPengeluaran = scanner.nextLine();
@@ -117,8 +119,8 @@ public class ClassCashManagementApp {
                         }
                     }
 
+                    // Tampilkan rekap kas
                     case 4 -> {
-                        // Tampilkan rekap kas
                         if (namaSiswa.isEmpty()) {
                             System.out.println("Belum ada data siswa.");
                         } else {
@@ -160,8 +162,9 @@ public class ClassCashManagementApp {
                         }
                     }
 
+                    // Hapus data siswa (menghapus siswa sepenuhnya)
                     case 5 -> {
-                        // Hapus data siswa (menghapus siswa sepenuhnya)
+
                         if (namaSiswa.isEmpty()) {
                             System.out.println("Belum ada data siswa untuk dihapus.");
                         } else {
@@ -189,11 +192,12 @@ public class ClassCashManagementApp {
                         }
                     }
 
-                    case 6 -> // Tampilkan total kas
+                    // Tampilkan total kas
+                    case 6 -> 
                         System.out.println("Total kas yang terkumpul saat ini: Rp " + totalKas);
 
+                    // Keluar dari aplikasi
                     case 7 -> {
-                        // Keluar dari aplikasi
                         running = false;
                         System.out.println("Terima kasih telah menggunakan aplikasi ini.");
                     }
