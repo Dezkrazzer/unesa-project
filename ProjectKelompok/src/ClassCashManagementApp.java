@@ -133,7 +133,7 @@ public class ClassCashManagementApp {
                                 // Format untuk nama dan kas
                                 System.out.printf("| %-2d | %-19s | %-12.2f | %-17s | %-10s |\n", 
                                                   (i + 1), 
-                                                  namaSiswa.get(i), 
+                                                  namaSiswa.get(i).toUpperCase(), 
                                                   kasSiswa.get(i), 
                                                   "", 
                                                   "");
