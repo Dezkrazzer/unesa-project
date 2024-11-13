@@ -4,7 +4,9 @@ import java.util.Scanner;
 public class ClassCashManagementApp {
     public static void main(String[] args) {
         // Nama aplikasi
-        System.out.println("==== Aplikasi Pendataan Kas Kelas ====");
+        System.out.println("|=============================================|");
+        System.out.println("|          APLIKASI MANAJEMEN KAS KELAS       | ");
+        System.out.println("|=============================================|");
 
         // Deklarasi variabel
         ArrayList<String> namaSiswa = new ArrayList<>();
@@ -20,22 +22,22 @@ public class ClassCashManagementApp {
             // Looping aplikasi (while)
             while (running) {
                 // Tampilkan menu utama dalam format tabel/kotak
-                System.out.println("\n===============================================");
+                System.out.println("\n|=============================================|");
                 System.out.println("|               Menu Utama                    |");
-                System.out.println("===============================================");
-                System.out.printf("| %-2s | %-37s |\n", "1", "Tambah data siswa");
+                System.out.println("|=============================================|");
+                System.out.printf("| %-2s | %-38s |\n", "1", "Tambah data siswa");
                 System.out.println("-----------------------------------------------");
-                System.out.printf("| %-2s | %-37s |\n", "2", "Tambah kas pada siswa yang sama");
+                System.out.printf("| %-2s | %-38s |\n", "2", "Tambah kas pada siswa yang sama");
                 System.out.println("-----------------------------------------------");
-                System.out.printf("| %-2s | %-37s |\n", "3", "Pengeluaran kas (kurangi total kas)");
+                System.out.printf("| %-2s | %-38s |\n", "3", "Pengeluaran kas");
                 System.out.println("-----------------------------------------------");
-                System.out.printf("| %-2s | %-37s |\n", "4", "Tampilkan rekap kas");
+                System.out.printf("| %-2s | %-38s |\n", "4", "Tampilkan rekap kas");
                 System.out.println("-----------------------------------------------");
-                System.out.printf("| %-2s | %-37s |\n", "5", "Hapus data siswa");
+                System.out.printf("| %-2s | %-38s |\n", "5", "Hapus data siswa");
                 System.out.println("-----------------------------------------------");
-                System.out.printf("| %-2s | %-37s |\n", "6", "Tampilkan total kas");
+                System.out.printf("| %-2s | %-38s |\n", "6", "Tampilkan total kas");
                 System.out.println("-----------------------------------------------");
-                System.out.printf("| %-2s | %-37s |\n", "7", "Keluar");
+                System.out.printf("| %-2s | %-38s |\n", "7", "Keluar");
                 System.out.println("===============================================");
                 System.out.print("Pilih menu: ");
                 int pilihan = scanner.nextInt();
