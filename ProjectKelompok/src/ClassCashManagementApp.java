@@ -59,7 +59,7 @@ public class ClassCashManagementApp {
                         double kas = scanner.nextDouble();
                         
                         // Tambahkan data ke ArrayList
-                        namaSiswa.add(nama);
+                        namaSiswa.add(nama.toUpperCase());
                         kasSiswa.add(kas);
                         totalKas += kas; // Tambahkan ke total kas
                         totalPemasukan += kas; // Tambahkan ke total pemasukan
