@@ -151,7 +151,6 @@ public class ClassCashManagementApp {
                                                   alasanPengeluaran.get(i), 
                                                   pengeluaranKas.get(i));
                             }
-                            
 
                             System.out.println("|----|---------------------|--------------|-------------------|------------|");
                             System.out.printf("| %-24s | %-45.2f |\n", "TOTAL PEMASUKAN:", totalPemasukan);
