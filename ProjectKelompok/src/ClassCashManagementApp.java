@@ -61,8 +61,8 @@ public class ClassCashManagementApp {
                         System.out.println("Nama disimpan dengan huruf kapital: " + nama.toUpperCase());
                         System.out.print("Masukkan jumlah kas " + nama.toUpperCase() + ": " );
                         double kas = scanner.nextDouble();
-                        String formatRupiah = String.format("Rp %,d", (int) kas);
-                        System.out.println("Kas: " + nama.toUpperCase() + formatRupiah);
+                        String formatRupiah = String.format("Rp%,d", (int) kas);
+                        System.out.println("Kas: " + nama.toUpperCase() + " " + formatRupiah);
                         
                         // Tambahkan data ke ArrayList
                         namaSiswa.add(nama.toUpperCase());
@@ -79,7 +79,7 @@ public class ClassCashManagementApp {
                         } else {
                             System.out.println("\nDaftar Siswa:");
                             for (int i = 0; i < namaSiswa.size(); i++) {
-                                String formatRupiah = String.format("Rp %,d", kasSiswa.get(i).intValue());
+                                String formatRupiah = String.format("Rp%,d", kasSiswa.get(i).intValue());
                                 System.out.printf("%d. %s - Kas: %s\n", (i + 1), namaSiswa.get(i), formatRupiah);
                             }
 
@@ -117,7 +117,7 @@ public class ClassCashManagementApp {
                             pengeluaranKas.add(pengeluaranKasAmount);
                             alasanPengeluaran.add(keteranganPengeluaran);
                             System.out.println("Keterangan: " + keteranganPengeluaran);
-                            String formatRupiah = String.format("Rp %,d", (int) pengeluaranKasAmount);
+                            String formatRupiah = String.format("Rp%,d", (int) pengeluaranKasAmount);
                             System.out.println("Pengeluaran sebesar " + formatRupiah + " berhasil dicatat.");
                         } else {
                             System.out.println("Total kas tidak mencukupi untuk pengeluaran sebesar itu.");
@@ -138,7 +138,7 @@ public class ClassCashManagementApp {
                             
                             // Tampilkan Pemasukan
                             for (int i = 0; i < namaSiswa.size(); i++) {
-                                String formatRupiahPemasukan = String.format("Rp %,d", kasSiswa.get(i).intValue());
+                                String formatRupiahPemasukan = String.format("Rp%,d", kasSiswa.get(i).intValue());
                                 System.out.printf("| %-2d | %-19s | %-12s | %-17s | %-10s |\n", 
                                                   (i + 1), 
                                                   namaSiswa.get(i), 
@@ -149,7 +149,7 @@ public class ClassCashManagementApp {
                             System.out.println("|----|---------------------|--------------|-------------------|------------|");
                             // Tampilkan Pengeluaran
                             for (int i = 0; i < alasanPengeluaran.size(); i++) {
-                                String formatRupiahPengeluaran = String.format("Rp %,d", pengeluaranKas.get(i).intValue());
+                                String formatRupiahPengeluaran = String.format("Rp%,d", pengeluaranKas.get(i).intValue());
                                 System.out.printf("| %-2s | %-19s | %-12s | %-17s | %-10s |\n", 
                                                   (i + 1), 
                                                   "", 
@@ -157,9 +157,9 @@ public class ClassCashManagementApp {
                                                   alasanPengeluaran.get(i), 
                                                   formatRupiahPengeluaran);
                             }
-                        String formatTotalPemasukan = String.format("Rp %,d", (int) totalPemasukan);
-                        String formatTotalPengeluaran = String.format("Rp %,d", (int) totalPengeluaran);
-                        String formatTotalKas = String.format("Rp %,d", (int) totalKas);
+                        String formatTotalPemasukan = String.format("Rp%,d", (int) totalPemasukan);
+                        String formatTotalPengeluaran = String.format("Rp%,d", (int) totalPengeluaran);
+                        String formatTotalKas = String.format("Rp%,d", (int) totalKas);
                         System.out.println("|----|---------------------|--------------|-------------------|------------|");
                         System.out.printf("| %-24s | %-45s |\n", "TOTAL PEMASUKAN:", formatTotalPemasukan);
                         System.out.printf("| %-24s | %-45s |\n", "TOTAL PENGELUARAN:", formatTotalPengeluaran);
@@ -176,7 +176,7 @@ public class ClassCashManagementApp {
                         } else {
                             System.out.println("\nDaftar Siswa:");
                             for (int i = 0; i < namaSiswa.size(); i++) {
-                                String formatRupiah = String.format("Rp %,d", kasSiswa.get(i).intValue());
+                                String formatRupiah = String.format("Rp%,d", kasSiswa.get(i).intValue());
                                 System.out.printf("%d. %s - Kas: %s\n", (i + 1), namaSiswa.get(i), formatRupiah);
                             }
 
@@ -201,7 +201,7 @@ public class ClassCashManagementApp {
 
                     // Tampilkan total kas
                     case 6 -> {
-                        String formatRupiah = String.format("Rp %,d", (int) totalKas);
+                        String formatRupiah = String.format("Rp%,d", (int) totalKas);
                         System.out.println("Total kas saat ini: " + formatRupiah);
                     }
 
@@ -239,7 +239,7 @@ public class ClassCashManagementApp {
                                 System.out.println("Nama Terbalik: " + namaTerbalik);
                     
                                 // 6. Format Total Kas Siswa ke Rupiah
-                                String formatKas = String.format("Rp %,d", (int) totalKasSiswa);
+                                String formatKas = String.format("Rp%,d", (int) totalKasSiswa);
                                 System.out.println("Total Kas Siswa: " + formatKas);
 
                             } else {
