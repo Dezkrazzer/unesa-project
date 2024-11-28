@@ -148,10 +148,12 @@ public class ClassCashManagementApp {
                         String formatTotalPemasukan = String.format("Rp%,d", (int) totalPemasukan);
                         String formatTotalPengeluaran = String.format("Rp%,d", (int) totalPengeluaran);
                         String formatTotalKas = String.format("Rp%,d", (int) totalKas);
+                        String kasDalamNominal= konversiAngkaKeNominal((long) totalKas);
                         System.out.println("|----|---------------------|--------------|-------------------|------------|");
                         System.out.printf("| %-24s | %-45s |\n", "TOTAL PEMASUKAN:", formatTotalPemasukan);
                         System.out.printf("| %-24s | %-45s |\n", "TOTAL PENGELUARAN:", formatTotalPengeluaran);
                         System.out.printf("| %-24s | %-45s |\n", "JUMLAH KAS SEKARANG:", formatTotalKas);
+                        System.out.printf("| %-24s | %-45s |\n","DALAM NOMINAL:", kasDalamNominal +" Rupiah");
                         System.out.println("|==========================================================================|");
                         }
                     }
@@ -189,8 +191,14 @@ public class ClassCashManagementApp {
 
                     // Tampilkan total kas
                     case 6 -> {
+                        
                         String formatRupiah = String.format("Rp%,d", (int) totalKas);
                         System.out.println("Total kas saat ini: " + formatRupiah);
+                                            
+                        // Konversi angka total kas menjadi kata
+                        String kasDalamNominal = konversiAngkaKeNominal((long) totalKas);
+                        System.out.println("Total Kas dalam Kata: " + kasDalamNominal + " rupiah");
+
                     }
 
                     case 7 ->{
@@ -273,5 +281,31 @@ public class ClassCashManagementApp {
         System.out.println("|==============================================|");
         System.out.print("Pilih menu: ");
     }
+    // Metode untuk mengonversi angka menjadi kata
+    public static String konversiAngkaKeNominal(long angka) {
+        String[] satuan = {
+            "", "se", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"
+        };
+        String hasil = "";
+
+        if (angka < 12) {
+            hasil = satuan[(int) angka];
+        } else if (angka < 20) {
+            hasil = satuan[(int) angka % 10] + " belas";
+        } else if (angka < 100) {
+            hasil = satuan[(int) angka / 10] + " puluh " + konversiAngkaKeNominal(angka % 10);
+        } else if (angka < 1000) {
+            hasil = satuan[(int) angka / 100] + " ratus " + konversiAngkaKeNominal(angka % 100);
+        } else if (angka < 1000000) {
+            hasil = konversiAngkaKeNominal(angka / 1000) + " ribu " + konversiAngkaKeNominal(angka % 1000);
+        } else if (angka < 1000000000) {
+            hasil = konversiAngkaKeNominal(angka / 1000000) + " juta " + konversiAngkaKeNominal(angka % 1000000);
+        } else {
+            hasil = konversiAngkaKeNominal(angka / 1000000000) + " miliar " + konversiAngkaKeNominal(angka % 1000000000);
+        }
+
+        return hasil.trim();
+    }
+
 }
 
