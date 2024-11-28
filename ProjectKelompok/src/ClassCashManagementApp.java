@@ -25,27 +25,8 @@ public class ClassCashManagementApp {
             // Looping aplikasi (while)
             while (running) {
 
-                // Tampilkan menu utama dalam format
-                System.out.println("\n|==============================================|");
-                System.out.println("|>>               Menu Utama                 <<|");
-                System.out.println("|==============================================|");
-                System.out.printf("| %-2s | %-39s |\n", "1", "Tambah data siswa");
-                System.out.println("|----------------------------------------------|");
-                System.out.printf("| %-2s | %-39s |\n", "2", "Tambah kas pada siswa yang sama");
-                System.out.println("|----------------------------------------------|");
-                System.out.printf("| %-2s | %-39s |\n", "3", "Pengeluaran kas");
-                System.out.println("|----------------------------------------------|");
-                System.out.printf("| %-2s | %-39s |\n", "4", "Tampilkan rekap kas");
-                System.out.println("|----------------------------------------------|");
-                System.out.printf("| %-2s | %-39s |\n", "5", "Hapus data siswa");
-                System.out.println("|----------------------------------------------|");
-                System.out.printf("| %-2s | %-39s |\n", "6", "Tampilkan total kas");
-                System.out.println("|----------------------------------------------|");
-                System.out.printf("| %-2s | %-39s |\n", "7", "Cek profil siswa");
-                System.out.println("|==============================================|");
-                System.out.printf("| %-2s | %-39s |\n", "8", "Keluar");
-                System.out.println("|==============================================|");
-                System.out.print("Pilih menu: ");
+                // Tampilkan menu utama mengunakan function
+                tampilkanMenu();
                 int pilihan = scanner.nextInt();
 
                 // Pilihan menu menggunakan switch case
@@ -268,4 +249,29 @@ public class ClassCashManagementApp {
             scanner.close();
         }
     }
+    
+    //function menu utama
+    public static void tampilkanMenu() {
+        System.out.println("\n|==============================================|");
+        System.out.println("|>>               Menu Utama                 <<|");
+        System.out.println("|==============================================|");
+        System.out.printf("| %-2s | %-39s |\n", "1", "Tambah data siswa");
+        System.out.println("|----------------------------------------------|");
+        System.out.printf("| %-2s | %-39s |\n", "2", "Tambah kas pada siswa yang sama");
+        System.out.println("|----------------------------------------------|");
+        System.out.printf("| %-2s | %-39s |\n", "3", "Pengeluaran kas");
+        System.out.println("|----------------------------------------------|");
+        System.out.printf("| %-2s | %-39s |\n", "4", "Tampilkan rekap kas");
+        System.out.println("|----------------------------------------------|");
+        System.out.printf("| %-2s | %-39s |\n", "5", "Hapus data siswa");
+        System.out.println("|----------------------------------------------|");
+        System.out.printf("| %-2s | %-39s |\n", "6", "Tampilkan total kas");
+        System.out.println("|----------------------------------------------|");
+        System.out.printf("| %-2s | %-39s |\n", "7", "Cek profil siswa");
+        System.out.println("|==============================================|");
+        System.out.printf("| %-2s | %-39s |\n", "8", "Keluar");
+        System.out.println("|==============================================|");
+        System.out.print("Pilih menu: ");
+    }
 }
+
