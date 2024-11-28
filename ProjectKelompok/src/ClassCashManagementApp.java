@@ -49,15 +49,16 @@ public class ClassCashManagementApp {
                         System.out.println("Nama disimpan dengan huruf kapital: " + nama.toUpperCase());
                         System.out.print("Masukkan jumlah kas " + nama.toUpperCase() + ": " );
                         double kas = scanner.nextDouble();
-                        String formatRupiah = String.format("Rp%, d", (int) kas);
-                        System.out.println("Kas: " + nama.toUpperCase() + " " + formatRupiah);
+                        String formatRupiah = String.format("Rp%,d", (int) kas);
+                        System.out.println("Kas " + nama.toUpperCase() + " " + formatRupiah);
                         
                         // Tambahkan data ke ArrayList
                         namaSiswa.add(nama.toUpperCase());
                         kasSiswa.add(kas);
                         totalKas += kas; // Tambahkan ke total kas
                         totalPemasukan += kas; // Tambahkan ke total pemasukan
-                        System.out.println("Data berhasil ditambahkan!");
+                        System.out.println("Selamat data berhasil ditambahkan!");
+                        kelompokEmpat();
                     }
 
                     // Tambah kas pada siswa yang sama
@@ -67,7 +68,7 @@ public class ClassCashManagementApp {
                         } else {
                             System.out.println("\nDaftar Siswa:");
                             for (int i = 0; i < namaSiswa.size(); i++) {
-                                String formatRupiah = String.format("Rp%, d", kasSiswa.get(i).intValue());
+                                String formatRupiah = String.format("Rp%,d", kasSiswa.get(i).intValue());
                                 System.out.printf("%d. %s - Kas: %s\n", (i + 1), namaSiswa.get(i), formatRupiah);
                             }
 
@@ -87,6 +88,7 @@ public class ClassCashManagementApp {
                                 System.out.println("Nomor siswa tidak valid.");
                             }
                         }
+                        kelompokEmpat();
                     }
 
                     // Pengeluaran kas
@@ -105,11 +107,12 @@ public class ClassCashManagementApp {
                             pengeluaranKas.add(pengeluaranKasAmount);
                             alasanPengeluaran.add(keteranganPengeluaran);
                             System.out.println("Keterangan: " + keteranganPengeluaran);
-                            String formatRupiah = String.format("Rp%, d", (int) pengeluaranKasAmount);
+                            String formatRupiah = String.format("Rp%,d", (int) pengeluaranKasAmount);
                             System.out.println("Pengeluaran sebesar " + formatRupiah + " berhasil dicatat.");
                         } else {
                             System.out.println("Total kas tidak mencukupi untuk pengeluaran sebesar itu.");
                         }
+                        kelompokEmpat();
                     }
 
                     // Tampilkan rekap kas
@@ -126,7 +129,7 @@ public class ClassCashManagementApp {
                             
                             // Tampilkan Pemasukan
                             for (int i = 0; i < namaSiswa.size(); i++) {
-                                String formatRupiahPemasukan = String.format("Rp%, d", kasSiswa.get(i).intValue());
+                                String formatRupiahPemasukan = String.format("Rp%,d", kasSiswa.get(i).intValue());
                                 System.out.printf("| %-2d | %-19s | %-12s | %-17s | %-10s |\n", 
                                                   (i + 1), 
                                                   namaSiswa.get(i), 
@@ -137,7 +140,7 @@ public class ClassCashManagementApp {
                             System.out.println("|----|---------------------|--------------|-------------------|------------|");
                             // Tampilkan Pengeluaran
                             for (int i = 0; i < alasanPengeluaran.size(); i++) {
-                                String formatRupiahPengeluaran = String.format("Rp%, d", pengeluaranKas.get(i).intValue());
+                                String formatRupiahPengeluaran = String.format("Rp%,d", pengeluaranKas.get(i).intValue());
                                 System.out.printf("| %-2s | %-19s | %-12s | %-17s | %-10s |\n", 
                                                   (i + 1), 
                                                   "", 
@@ -145,9 +148,9 @@ public class ClassCashManagementApp {
                                                   alasanPengeluaran.get(i), 
                                                   formatRupiahPengeluaran);
                             }
-                        String formatTotalPemasukan = String.format("Rp%, d", (int) totalPemasukan);
-                        String formatTotalPengeluaran = String.format("Rp%, d", (int) totalPengeluaran);
-                        String formatTotalKas = String.format("Rp%, d", (int) totalKas);
+                        String formatTotalPemasukan = String.format("Rp%,d", (int) totalPemasukan);
+                        String formatTotalPengeluaran = String.format("Rp %,d", (int) totalPengeluaran);
+                        String formatTotalKas = String.format("Rp %,d", (int) totalKas);
                         String kasDalamNominal= konversiAngkaKeNominal((long) totalKas);
                         System.out.println("|----|---------------------|--------------|-------------------|------------|");
                         System.out.printf("| %-24s | %-45s |\n", "TOTAL PEMASUKAN:", formatTotalPemasukan);
@@ -166,7 +169,7 @@ public class ClassCashManagementApp {
                         } else {
                             System.out.println("\nDaftar Siswa:");
                             for (int i = 0; i < namaSiswa.size(); i++) {
-                                String formatRupiah = String.format("Rp%, d", kasSiswa.get(i).intValue());
+                                String formatRupiah = String.format("Rp%,d", kasSiswa.get(i).intValue());
                                 System.out.printf("%d. %s - Kas: %s\n", (i + 1), namaSiswa.get(i), formatRupiah);
                             }
 
@@ -181,24 +184,25 @@ public class ClassCashManagementApp {
                                 // Hapus siswa dari ArrayList
                                 namaSiswa.remove(nomorSiswa - 1);
                                 kasSiswa.remove(nomorSiswa - 1);
-
-                                System.out.println("Data berhasil dihapus. Kas dikurangi sebesar Rp " + kasDihapus);
+                                String formatRupiah = String.format("Rp%,d", (int) kasDihapus);
+                                System.out.println("Data berhasil dihapus. Kas dikurangi sebesar " + formatRupiah);
                             } else {
                                 System.out.println("Nomor siswa tidak valid.");
                             }
                         }
+                        kelompokEmpat();
                     }
 
                     // Tampilkan total kas
                     case 6 -> {
 
-                        String formatRupiah = String.format("Rp%, d", (int) totalKas);
+                        String formatRupiah = String.format("Rp%,d", (int) totalKas);
                         System.out.println("Total kas saat ini: " + formatRupiah);
                                             
                         // Konversi angka total kas menjadi kata
                         String kasDalamNominal = konversiAngkaKeNominal((long) totalKas);
-                        System.out.println("Total Kas dalam Kata: " + kasDalamNominal + " rupiah");
-
+                        System.out.println("Total Kas dalam nominal: " + kasDalamNominal + " rupiah");
+                        kelompokEmpat();
                     }
 
                     case 7 ->{
@@ -212,31 +216,33 @@ public class ClassCashManagementApp {
                     
                             System.out.print("Masukkan nomor siswa untuk melihat profil: ");
                             int nomorSiswa = scanner.nextInt();
-                    
+
+                            formatTabel();
                             if (nomorSiswa > 0 && nomorSiswa <= namaSiswa.size()) {
                                 String nama = namaSiswa.get(nomorSiswa - 1);
                                 double totalKasSiswa = kasSiswa.get(nomorSiswa - 1);
                     
                                 // 1. Mengubah Nama ke Huruf Kapital
-                                System.out.println("Nama (Huruf Besar): " + nama.toUpperCase());
+                                System.out.println("|Nama siswa dalam huruf besar: |" + nama.toUpperCase());
                     
                                 // 2. Mengubah Nama ke Huruf Kecil
-                                System.out.println("Nama (Huruf Kecil): " + nama.toLowerCase());
+                                System.out.println("|Nama siswa dakam huruf Kecil: |" + nama.toLowerCase());
                     
                                 // 3. Mengambil Inisial Nama
                                 String inisial = nama.substring(0, 1).toUpperCase() + ".";
-                                System.out.println("Inisial Nama: " + inisial);
+                                System.out.println("|Inisial Nama                : |" + inisial);
                     
                                 // 4. Validasi Panjang Nama
-                                System.out.println("Panjang Nama: " + nama.length() + " karakter");
+                                System.out.println("|Panjang Nama                : |" + nama.length() + " karakter");
                     
                                 // 5. Membalik Nama
                                 String namaTerbalik = new StringBuilder(nama).reverse().toString();
-                                System.out.println("Nama Terbalik: " + namaTerbalik);
+                                System.out.println("|Nama Terbalik               : |" + namaTerbalik);
                     
                                 // 6. Format Total Kas Siswa ke Rupiah
-                                String formatKas = String.format("Rp%, d", (int) totalKasSiswa);
-                                System.out.println("Total Kas Siswa: " + formatKas);
+                                String formatKas = String.format("Rp%,d", (int) totalKasSiswa);
+                                System.out.println("|Total Kas Siswa             : |" + formatKas);
+                                formatTabel();
 
                             } else {
                                 System.out.println("Nomor siswa tidak valid.");
@@ -247,7 +253,22 @@ public class ClassCashManagementApp {
                     // Keluar dari aplikasi
                     case 8 -> {
                         running = false;
-                        System.out.println("Terima kasih telah menggunakan aplikasi ini.");
+                        System.out.println("|-----------------------------------------------|");
+                        System.out.println("|  TERIMAKASIH TELAH MENGGUNAKAN APLIKASI KAMI  |");
+                        System.out.println("|            <<< KELOMPOK EMPAT >>>             |");
+                        System.out.println("|-----------------------------------------------|");
+                        System.out.printf("| %-25s |  %-15s  |%n", "NAMA", "NIM");
+                        System.out.println("|-----------------------------------------------|");
+                        System.out.printf("| %-25s |  %-15s  |%n", "Fadly Fais Fajarruddin", "24111814015");
+                        System.out.printf("| %-25s |  %-15s  |%n", "Lazuardi Akbar Imani", "24111814119");
+                        System.out.printf("| %-25s |  %-15s  |%n", "Faqih Rafasha Argandhi", "24111814032");
+                        System.out.printf("| %-25s |  %-15s  |%n", "Febriana Nur Ain", "24111814006");
+                        System.out.printf("| %-25s |  %-15s  |%n", "Leony Andika Triwicaksono", "24111814022");
+                        System.out.printf("| %-25s |  %-15s  |%n", "Manda Fatimah Azaziah", "24111814044");
+                        System.out.printf("| %-25s |  %-15s  |%n", "Muhammad Rifki Maulana", "24111814084");
+                        System.out.println("|-----------------------------------------------|");
+                        System.out.println("|              JANGAN LUPA MAKAN                |");
+                        System.out.println("|-----------------------------------------------|");
                     }
 
                     default -> System.out.println("Pilihan tidak valid, coba lagi.");
@@ -305,6 +326,13 @@ public class ClassCashManagementApp {
         }
 
         return hasil.trim();
+    }
+
+    static void kelompokEmpat() {
+        System.out.println("Semoga hasil memuaskan, salam dari kelompok 4");
+      }
+    static void formatTabel() {
+        System.out.println("|==============================|==============================|");
     }
 
 }
