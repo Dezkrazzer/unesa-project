@@ -54,8 +54,15 @@ public class ClassCashManagementApp {
                     // Tambah data siswa
                     case 1 -> {
                         System.out.print("Masukkan nama siswa: ");
-                        scanner.nextLine();
+                        scanner.nextLine(); // Membersihkan buffer
                         String nama = scanner.nextLine();
+        
+                        // Validasi panjang nama dengan while loop
+                        while (nama.length() < 2 || nama.length() > 10) {
+                        System.out.println("Nama harus memiliki 2 hingga 10 huruf. Silakan coba lagi.");
+                        System.out.print("Masukkan nama siswa: ");
+                        nama = scanner.nextLine();  // Membaca ulang input nama
+                        }
                         
                         // Manipulasi string
                         System.out.println("Nama disimpan dengan huruf kapital: " + nama.toUpperCase());
