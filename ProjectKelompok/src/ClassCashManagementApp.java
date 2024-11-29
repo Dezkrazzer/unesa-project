@@ -149,14 +149,14 @@ public class ClassCashManagementApp {
                                                   formatRupiahPengeluaran);
                             }
                         String formatTotalPemasukan = String.format("Rp%,d", (int) totalPemasukan);
-                        String formatTotalPengeluaran = String.format("Rp %,d", (int) totalPengeluaran);
-                        String formatTotalKas = String.format("Rp %,d", (int) totalKas);
+                        String formatTotalPengeluaran = String.format("Rp%,d", (int) totalPengeluaran);
+                        String formatTotalKas = String.format("Rp%,d", (int) totalKas);
                         String kasDalamNominal= konversiAngkaKeNominal((long) totalKas);
                         System.out.println("|----|---------------------|--------------|-------------------|------------|");
                         System.out.printf("| %-24s | %-45s |\n", "TOTAL PEMASUKAN:", formatTotalPemasukan);
                         System.out.printf("| %-24s | %-45s |\n", "TOTAL PENGELUARAN:", formatTotalPengeluaran);
                         System.out.printf("| %-24s | %-45s |\n", "JUMLAH KAS SEKARANG:", formatTotalKas);
-                        System.out.printf("| %-24s | %-45s |\n","DALAM NOMINAL:", kasDalamNominal +" Rupiah");
+                        System.out.printf("| %-24s | %-45s |\n","TERBILANG:", kasDalamNominal +" Rupiah");
                         System.out.println("|==========================================================================|");
                         }
                     }
