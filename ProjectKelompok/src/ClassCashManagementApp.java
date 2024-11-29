@@ -307,7 +307,7 @@ public class ClassCashManagementApp {
         String[] satuan = {
             "", "se", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"
         };
-        String hasil = "";
+        String hasil;
 
         if (angka < 12) {
             hasil = satuan[(int) angka];
