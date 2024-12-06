@@ -252,12 +252,16 @@ public class ClassCashManagementApp {
 
 //  ⚠️ ==========[ CASE 6 | MELIHAT TOTAL KAS ]========== ⚠️
     public static void tampilkanTotalKas() {
+        try {
         String formatRupiah = String.format("Rp%,d", (int) totalKas).replace(",", ".");
         System.out.println("\nTotal kas saat ini: " + formatRupiah);
                             
         String kasDalamNominal = konversiAngkaKeNominal((long) totalKas);
         System.out.println("Total Kas terbilang: " + kasDalamNominal + " rupiah");
+    } catch (ArrayIndexOutOfBoundsException e) {
+        System.out.println("[ERROR] | Index Array diluar batas. Coba lagi");
     }
+}
 //  ⛔ ==========[ END OF SECTION ]========== ⛔
 
 //  ⚠️ ==========[ CASE 7 | PROFILE SISWA ]========== ⚠️
