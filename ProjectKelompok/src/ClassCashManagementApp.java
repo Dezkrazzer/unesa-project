@@ -165,7 +165,7 @@ public class ClassCashManagementApp {
                 pengeluaranKas.add(pengeluaranKasAmount);
                 alasanPengeluaran.add(keteranganPengeluaran);
                 System.out.println("[INFO] | Keterangan: " + keteranganPengeluaran);
-                String formatRupiah = String.format("Rp%,d", (int) pengeluaranKasAmount);
+                String formatRupiah = String.format("Rp%,d", (int) pengeluaranKasAmount).replace(",", ".");
                 System.out.println("[SUCCESS] | Pengeluaran sebesar " + formatRupiah + " berhasil dicatat.");
             } else {
                 System.out.println("[ERROR] | Total kas tidak mencukupi dengan pengeluaran tersebut.");
