@@ -323,7 +323,7 @@ public class ClassCashManagementApp {
         System.out.printf("| %-25s |  %-15s  |%n", "Fadly Fais Fajarruddin", "24111814015");
         System.out.printf("| %-25s |  %-15s  |%n", "Lazuardi Akbar Imani", "24111814119");
         System.out.printf("| %-25s |  %-15s  |%n", "Faqih Rafasha Argandhi", "24111814032");
-        System.out.printf("| %-25s |  %-15s  |%n", "Febriana Nur Ain", "24111814006");
+        System.out.printf("| %-25s |  %-15s  |%n", "Febriana Nur Aini", "24111814006");
         System.out.printf("| %-25s |  %-15s  |%n", "Leony Andika Triwicaksono", "24111814022");
         System.out.printf("| %-25s |  %-15s  |%n", "Manda Fatimah Azaziah", "24111814044");
         System.out.printf("| %-25s |  %-15s  |%n", "Muhammad Rifki Maulana", "24111814084");
