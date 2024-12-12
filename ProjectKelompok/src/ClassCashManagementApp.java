@@ -123,6 +123,10 @@ public class ClassCashManagementApp {
 //  ⚠️ ==========[ CASE 2 | MENAMBAH KAS SISWA SAMA ]========== ⚠️
     public static void tambahKasSiswa(Scanner scanner) {
         try {
+            if (namaSiswa.isEmpty()) {
+                System.out.println("[ERROR] | Belum ada data siswa.");
+                return;
+            }
             System.out.println("\nDaftar Siswa:");
             for (int i = 0; i < namaSiswa.size(); i++) {
                 String formatRupiah = String.format("Rp%,d", kasSiswa.get(i).intValue());
@@ -181,7 +185,7 @@ public class ClassCashManagementApp {
     public static void tampilkanRekapKas() {
         totalKas -= totalPengeluaran;
         if (namaSiswa.isEmpty()) {
-            System.out.println("Belum ada data siswa.");
+            System.out.println("[ERROR] | Belum ada data siswa.");
         } else {
             System.out.println("|==========================================================================|");
             System.out.println("|    |            PEMASUKAN               |            PENGELUARAN         |");
