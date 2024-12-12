@@ -4,38 +4,36 @@ import java.util.Scanner;
 
 public class ClassCashManagementApp {
 
-//  ⚠️ ==========[ DEKLARASI VARIABLE ]========== ⚠️
-    static ArrayList<String> namaSiswa = new ArrayList<>(); // ✅ Format data string
-    static ArrayList<Double> kasSiswa = new ArrayList<>();
-    static ArrayList<String> alasanPengeluaran = new ArrayList<>();
-    static ArrayList<Double> pengeluaranKas = new ArrayList<>();
-    static boolean running = true; // ✅ Format data boolean
-    static double totalKas = 0; // ✅ Format data double
-    static double totalPemasukan = 0;
-    static double totalPengeluaran = 0;
-//  ⛔ =======[ END OF DEKLARASI VARIABLE]======= ⛔
+//  🟩 ==========[ DEKLARASI VARIABLE ]========== 🟩
+    static ArrayList<String> namaSiswa = new ArrayList<>(); // ⚠️ ArrayList: namaSiswa
+    static ArrayList<Double> kasSiswa = new ArrayList<>(); // ⚠️ ArrayList: kasSiswa
+    static ArrayList<String> alasanPengeluaran = new ArrayList<>(); // ⚠️ ArrayList: alasanPengeluaran
+    static ArrayList<Double> pengeluaranKas = new ArrayList<>(); // ⚠️ ArrayList: pengeluaranKas
+    static boolean running = true; // ⚠️ Type Data: boolean
+    static double totalKas = 0; // ⚠️ Type Data: double
+    static double totalPemasukan = 0; // ⚠️ Type Data: double
+    static double totalPengeluaran = 0; // Type Data: double
+//  🟥 =======[ END OF DEKLARASI VARIABLE]======= 🟥
 
     public static void main(String[] args) {
 
-//      ✅ ==========[ NAMA APLIKASI ]========== ✅
+//      🟩 ==========[ NAMA APLIKASI ]========== 🟩
         System.out.println("╔==============================================╗");
         System.out.println("|>>>                                        <<<|");
         System.out.println("|>>       Aplikasi Pendataan Kas Kelas       <<|");
         System.out.println("|>>>                                        <<<|");
         System.out.println("╚==============================================╝");
-//      ⛔ ==========[ END OF SECTION ]========== ⛔
+//      🟥 ==========[ END OF SECTION ]========== 🟥
 
         try (Scanner scanner = new Scanner(System.in)) {
 
-//          ✅ ==========[ LOOPING (WHILE) ]========== ✅
-            while (running) {
+//          🟩 ==========[ LOOPING (WHILE) ]========== 🟩
+            while (running) { // ⚠️ Looping: while
 
-//              ✅ ==========[ MENU UTAMA (FUNCTION) ]========== ✅
-                tampilkanPilihanMenu();
-                int pilihan = scanner.nextInt();
+                tampilkanPilihanMenu(); // ⚠️ Function
+                int pilihan = scanner.nextInt(); // ⚠️ Type Data: int
 
-//              ✅ ==========[ PILIHAN (SWTICH CASE) ]========== ✅
-                switch (pilihan) {
+                switch (pilihan) { // ⚠️ Percabangan: switch-case
                     case 1 ->
                         tambahDataSiswa(scanner);
                     case 2 ->
@@ -63,8 +61,8 @@ public class ClassCashManagementApp {
         }
     }
 
-//  ✅ ==========[ MENU UTAMA (FUNCTIION) ]========== ✅
-    public static void tampilkanPilihanMenu() {
+//  🟩 ==========[ MENU UTAMA ]========== 🟩
+    public static void tampilkanPilihanMenu() { // ⚠️ Function
         System.out.println("\n|==============================================|");
         System.out.println("|>>               Menu Utama                 <<|");
         System.out.println("|==============================================|");
@@ -86,24 +84,24 @@ public class ClassCashManagementApp {
         System.out.println("|==============================================|");
         System.out.print("> Pilih menu: ");
     }
-//  ⛔ ==========[ END OF SECTION ]========== ⛔
+//  🟥 ==========[ END OF SECTION ]========== 🟥
 
-//  ✅==========[ PEMINDAHAN SWITCH CASE TO REKRUSIF ]========== ✅
+//  ⚠️==========[ PEMINDAHAN SWITCH CASE TO REKRUSIF ]========== ⚠️
 
-//  ⚠️ ==========[ CASE 1 | MENAMBAH DATA SISWA ]========== ⚠️
+//  🟩 ==========[ CASE 1 | MENAMBAH DATA SISWA ]========== 🟩
     public static void tambahDataSiswa(Scanner scanner) {
-        try {
+        try { // ⚠️ try
             System.out.print("> Masukkan nama siswa: ");
             scanner.nextLine();
-            String nama = scanner.nextLine();
-            while (nama.length() < 2 || nama.length() > 10) {
+            String nama = scanner.nextLine(); // ⚠️ Type Data: String
+            while (nama.length() < 2 || nama.length() > 10) { // ⚠️ Looping: while
                 System.out.println("[ERROR] | Nama harus memiliki 2 hingga 10 huruf. Silakan coba lagi.");
                 System.out.print("> Masukkan nama siswa: ");
                 nama = scanner.nextLine();
             }
             System.out.println("[INFO] | Nama disimpan dengan huruf kapital: " + nama.toUpperCase());
             System.out.print("> Masukkan jumlah kas " + nama.toUpperCase() + ": ");
-            double kas = scanner.nextDouble();
+            double kas = scanner.nextDouble(); // ⚠️ Type Data: double
 
             String formatRupiah = String.format("Rp%,d", (int) kas).replace(",", ".");
             System.out.println("[INFO] | Kas " + nama.toUpperCase() + " " + formatRupiah);
@@ -113,55 +111,55 @@ public class ClassCashManagementApp {
             totalKas += kas;
             totalPemasukan += kas;
             System.out.println("[SUCCESS] | Data siswa berhasil ditambahkan.");
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException e) { // ⚠️ catch
             System.out.println("[ERROR] | Input tidak valid, hanya angka yang diterima.");
             scanner.nextLine();
         }
     }
-//  ⛔ ==========[ END OF SECTION ]========== ⛔
+//  🟥 ==========[ END OF SECTION ]========== 🟥
 
-//  ⚠️ ==========[ CASE 2 | MENAMBAH KAS SISWA SAMA ]========== ⚠️
+//  🟩 ==========[ CASE 2 | MENAMBAH KAS SISWA SAMA ]========== 🟩
     public static void tambahKasSiswa(Scanner scanner) {
-        try {
+        try { // ⚠️ try
             if (namaSiswa.isEmpty()) {
                 System.out.println("[ERROR] | Belum ada data siswa.");
                 return;
             }
             System.out.println("\nDaftar Siswa:");
-            for (int i = 0; i < namaSiswa.size(); i++) {
+            for (int i = 0; i < namaSiswa.size(); i++) { // ⚠️ Looping: for
                 String formatRupiah = String.format("Rp%,d", kasSiswa.get(i).intValue());
                 formatRupiah = formatRupiah.replace(",", ".");
                 System.out.printf("%d. %s - Kas: %s\n", (i + 1), namaSiswa.get(i), formatRupiah);
             }
             System.out.print("> Masukkan nomor siswa yang ingin menambah kas: ");
-            int nomorSiswa = scanner.nextInt();
+            int nomorSiswa = scanner.nextInt(); // ⚠️ Type Data: int
             System.out.print("> Masukkan jumlah kas tambahan: ");
-            double tambahanKas = scanner.nextDouble();
+            double tambahanKas = scanner.nextDouble(); // ⚠️ Type Data: double
 
-            if (nomorSiswa > 0 && nomorSiswa <= namaSiswa.size()) {
+            if (nomorSiswa > 0 && nomorSiswa <= namaSiswa.size()) { // ⚠️ Percabangan: if
                 kasSiswa.set(nomorSiswa - 1, kasSiswa.get(nomorSiswa - 1) + tambahanKas);
                 totalKas += tambahanKas;
                 totalPemasukan += tambahanKas;
                 System.out.println("[SUCCESS] | Kas berhasil ditambahkan.");
-            } else {
+            } else {// ⚠️ Percabangan: else
                 System.out.println("[ERROR] | Nomor siswa tidak valid.");
             }
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException e) { // ⚠️ catch
             System.out.println("[ERROR] | Input tidak valid, hanya angka yang diterima.");
             scanner.nextLine();
         }
     }
-//  ⛔ ==========[ END OF SECTION ]========== ⛔
+//  🟥 ==========[ END OF SECTION ]========== 🟥
 
-//  ⚠️ ==========[ CASE 3 | MENCATAT PENGELUARAN KAS ]========== ⚠️
+//  🟩 ==========[ CASE 3 | MENCATAT PENGELUARAN KAS ]========== 🟩
     public static void pengeluaranKas(Scanner scanner) {
         try {
             System.out.print("> Masukkan jumlah pengeluaran kas: ");
-            double pengeluaranKasAmount = scanner.nextDouble();
-            scanner.nextLine();
+            double pengeluaranKasAmount = scanner.nextDouble(); // ⚠️ Type Data: double
+            scanner.nextLine(); 
 
             System.out.print("> Masukkan keterangan pengeluaran: ");
-            String keteranganPengeluaran = scanner.nextLine();
+            String keteranganPengeluaran = scanner.nextLine(); // ⚠️ Type Data: String
 
             if (pengeluaranKasAmount <= totalKas) {
 
@@ -179,9 +177,9 @@ public class ClassCashManagementApp {
             scanner.nextLine();
         }
     }
-//  ⛔ ==========[ END OF SECTION ] ========== ⛔
+//  🟥 ==========[ END OF SECTION ] ========== 🟥
 
-//  ⚠️ ==========[ CASE 4 | MENAMPILKAN REKAP KAS ]========== ⚠️
+//  🟩 ==========[ CASE 4 | MENAMPILKAN REKAP KAS ]========== 🟩
     public static void tampilkanRekapKas() {
         totalKas -= totalPengeluaran;
         if (namaSiswa.isEmpty()) {
@@ -193,8 +191,7 @@ public class ClassCashManagementApp {
             System.out.println("| NO | NAMA SISWA          |    JUMLAH    | KETERANGAN        |   JUMLAH   |");
             System.out.println("|----|---------------------|--------------|-------------------|------------|");
 
-//          ✅ ==========[ Looping Tampilkan Pemasukan (for) ]========== ✅
-            for (int i = 0; i < namaSiswa.size(); i++) {
+            for (int i = 0; i < namaSiswa.size(); i++) { // ⚠️ Looping: for
                 String formatRupiahPemasukan = String.format("Rp%,d", kasSiswa.get(i).intValue());
 
                 System.out.printf("| %-2d | %-19s | %-12s | %-17s | %-10s |\n",
@@ -205,8 +202,8 @@ public class ClassCashManagementApp {
                         "");
             }
             System.out.println("|----|---------------------|--------------|-------------------|------------|");
-//          ✅ ==========[ Tampilkan Pengeluaran ]========== ✅
-            for (int i = 0; i < alasanPengeluaran.size(); i++) {
+
+            for (int i = 0; i < alasanPengeluaran.size(); i++) { // ⚠️ Looping: for
                 String formatRupiahPengeluaran = String.format("Rp%,d", pengeluaranKas.get(i).intValue());
                 System.out.printf("| %-2s | %-19s | %-12s | %-17s | %-10s |\n",
                         (i + 1),
@@ -227,9 +224,9 @@ public class ClassCashManagementApp {
             System.out.println("|==========================================================================|");
         }
     }
-// ⛔ ==========[ END OF SECTION ]========== ⛔
+// 🟥 ==========[ END OF SECTION ]========== 🟥
 
-//  ⚠️ ==========[ CASE 5 | MENGHAPUS DATA SISWA]========== ⚠️
+//  🟩 ==========[ CASE 5 | MENGHAPUS DATA SISWA]========== 🟩
     public static void hapusDataSiswa(Scanner scanner) {
         try {
             if (namaSiswa.isEmpty()) {
@@ -257,9 +254,9 @@ public class ClassCashManagementApp {
             scanner.nextLine();
         }
     }
-//  ⛔ ==========[ END OF SECTION]========== ⛔
+//  🟥 ==========[ END OF SECTION]========== 🟥
 
-//  ⚠️ ==========[ CASE 6 | MELIHAT TOTAL KAS ]========== ⚠️
+//  🟩 ==========[ CASE 6 | MELIHAT TOTAL KAS ]========== 🟩
     public static void tampilkanTotalKas() {
         try {
         String formatRupiah = String.format("Rp%,d", (int) totalKas).replace(",", ".");
@@ -271,9 +268,9 @@ public class ClassCashManagementApp {
         System.out.println("[ERROR] | Index Array diluar batas. Coba lagi");
     }
 }
-//  ⛔ ==========[ END OF SECTION ]========== ⛔
+//  🟥 ==========[ END OF SECTION ]========== 🟥
 
-//  ⚠️ ==========[ CASE 7 | PROFILE SISWA ]========== ⚠️
+//  🟩 ==========[ CASE 7 | PROFILE SISWA ]========== 🟩
     public static void cekProfilSiswa(Scanner scanner) {
         try {
             if (namaSiswa.isEmpty()) {
@@ -293,7 +290,7 @@ public class ClassCashManagementApp {
                 String nama = namaSiswa.get(nomorSiswa - 1);
                 double totalKasSiswa = kasSiswa.get(nomorSiswa - 1);
 
-                String statusSiswa = (!namaSiswa.isEmpty()) ? "Available" : "Not Available";
+                String statusSiswa = (!namaSiswa.isEmpty()) ? "Available" : "Not Available"; // ⚠️ Operator: ternary
                 System.out.println("|Status siswa: " + statusSiswa);
 
  //             ✅ ==========[ 1 | Mengubah Nama ke Huruf Kapital ] ========== ✅
@@ -327,9 +324,9 @@ public class ClassCashManagementApp {
             scanner.nextLine();
         }
     }
-//  ⛔ ==========[ END OF SECTION ]========== ⛔
+//  🟥 ==========[ END OF SECTION ]========== 🟥
 
-//  ⚠️ ==========[ CREDIT SECTION (FUNCTION) ]========== ⚠️
+//  🟩 ==========[ CREDIT SECTION (FUNCTION) ]========== 🟩
     public static void tampilkanPenutup() {
         System.out.println("|-----------------------------------------------|");
         System.out.println("|  TERIMAKASIH TELAH MENGGUNAKAN APLIKASI KAMI  |");
@@ -348,7 +345,7 @@ public class ClassCashManagementApp {
         System.out.println("|              JANGAN LUPA MAKAN                |");
         System.out.println("|-----------------------------------------------|");
     }
-//  ⛔ ==========[ END OF SECTION ]========== ⛔
+//  🟥 ==========[ END OF SECTION ]========== 🟥
 
 //  ✅ Fungsi untuk memformat tampilan tabel ✅
     public static void formatTabel() {
@@ -380,5 +377,5 @@ public class ClassCashManagementApp {
 
         return hasil.trim();
     }
-//  ⛔ ==========[ END OF SECTION ]========== ⛔
+//  🟥 ==========[ END OF SECTION ]========== 🟥
 }
