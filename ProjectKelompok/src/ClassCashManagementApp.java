@@ -280,7 +280,7 @@ public class ClassCashManagementApp {
                 System.out.println("[ERROR] | Belum ada data siswa.");
                 return;
             }
-            
+
             System.out.println("\nDaftar Siswa:");
             for (int i = 0; i < namaSiswa.size(); i++) {
                 System.out.printf("%d. %s\n", i + 1, namaSiswa.get(i));
@@ -292,6 +292,9 @@ public class ClassCashManagementApp {
             if (nomorSiswa > 0 && nomorSiswa <= namaSiswa.size()) {
                 String nama = namaSiswa.get(nomorSiswa - 1);
                 double totalKasSiswa = kasSiswa.get(nomorSiswa - 1);
+
+                String statusSiswa = (!namaSiswa.isEmpty()) ? "Available" : "Not Available";
+                System.out.println("|Status siswa: " + statusSiswa);
 
  //             ✅ ==========[ 1 | Mengubah Nama ke Huruf Kapital ] ========== ✅
                 System.out.println("|Nama siswa dalam huruf besar: |" + nama.toUpperCase());
