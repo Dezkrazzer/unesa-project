@@ -232,6 +232,11 @@ public class ClassCashManagementApp {
 //  ⚠️ ==========[ CASE 5 | MENGHAPUS DATA SISWA]========== ⚠️
     public static void hapusDataSiswa(Scanner scanner) {
         try {
+            if (namaSiswa.isEmpty()) {
+                System.out.println("[ERROR] | Belum ada data siswa.");
+                return;
+            }
+
             System.out.println("\nDaftar Siswa:");
             for (int i = 0; i < namaSiswa.size(); i++) {
                 System.out.printf("%d. %s - Kas: Rp%,.2f\n", i + 1, namaSiswa.get(i), kasSiswa.get(i));
@@ -271,6 +276,11 @@ public class ClassCashManagementApp {
 //  ⚠️ ==========[ CASE 7 | PROFILE SISWA ]========== ⚠️
     public static void cekProfilSiswa(Scanner scanner) {
         try {
+            if (namaSiswa.isEmpty()) {
+                System.out.println("[ERROR] | Belum ada data siswa.");
+                return;
+            }
+            
             System.out.println("\nDaftar Siswa:");
             for (int i = 0; i < namaSiswa.size(); i++) {
                 System.out.printf("%d. %s\n", i + 1, namaSiswa.get(i));
