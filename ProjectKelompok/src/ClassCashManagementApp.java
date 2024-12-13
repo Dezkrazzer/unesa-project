@@ -303,8 +303,12 @@ public class ClassCashManagementApp {
                 String nama = namaSiswa.get(nomorSiswa - 1);
                 double totalKasSiswa = kasSiswa.get(nomorSiswa - 1);
 
+                
+
                 String statusSiswa = (!namaSiswa.isEmpty()) ? status[0] : status[1]; // ⚠️ Operator: ternary
-                System.out.println("|Status siswa: " + statusSiswa);
+                //System.out.println("|Status siswa: " + statusSiswa);
+                
+                System.out.println("|Siswa: " + nama.concat(" - Status: " + statusSiswa));
 
  //             ✅ ==========[ 1 | Mengubah Nama ke Huruf Kapital ] ========== ✅
                 System.out.println("|Nama siswa dalam huruf besar: |" + nama.toUpperCase());
