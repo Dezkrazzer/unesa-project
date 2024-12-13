@@ -97,7 +97,7 @@ public class ClassCashManagementApp {
             String nama = scanner.nextLine(); // ⚠️ Type Data: String
 
             if (nama.matches("[a-zA-Z]+")) { // ⚠️ Manipulasi String: matches
-
+                System.out.println("[INFO] | Nama valid, silahkan masukkan jumlah kas.");
             } else {
                 System.out.println("[ERROR] | Nama tidak valid. Hanya huruf yang diterima");
                 return;
