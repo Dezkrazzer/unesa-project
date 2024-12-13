@@ -95,6 +95,18 @@ public class ClassCashManagementApp {
             System.out.print("> Masukkan nama siswa: ");
             scanner.nextLine();
             String nama = scanner.nextLine(); // ⚠️ Type Data: String
+
+            if (nama.matches("[a-zA-Z]+")) { // ⚠️ Manipulasi String: matches
+
+            } else {
+                System.out.println("[ERROR] | Nama tidak valid. Hanya huruf yang diterima");
+                return;
+            }
+
+            if (namaSiswa.contains(nama.toUpperCase())) { // ⚠️ Manipulasi String: contains
+                System.out.println("[WARNING] | Nama " + nama + " sudah ada. Ini akan membuat 2 data");
+            }
+
             while (nama.length() < 2 || nama.length() > 10) { // ⚠️ Looping: while
                 System.out.println("[ERROR] | Nama harus memiliki 2 hingga 10 huruf. Silakan coba lagi.");
                 System.out.print("> Masukkan nama siswa: ");
