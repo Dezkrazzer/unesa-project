@@ -9,6 +9,7 @@ public class ClassCashManagementApp {
     static ArrayList<Double> kasSiswa = new ArrayList<>(); // ⚠️ ArrayList: kasSiswa
     static ArrayList<String> alasanPengeluaran = new ArrayList<>(); // ⚠️ ArrayList: alasanPengeluaran
     static ArrayList<Double> pengeluaranKas = new ArrayList<>(); // ⚠️ ArrayList: pengeluaranKas
+    static String[] status = {"Available", "Not Available"}; // ⚠️ Array: Status Variable
     static boolean running = true; // ⚠️ Type Data: boolean
     static double totalKas = 0; // ⚠️ Type Data: double
     static double totalPemasukan = 0; // ⚠️ Type Data: double
@@ -290,7 +291,7 @@ public class ClassCashManagementApp {
                 String nama = namaSiswa.get(nomorSiswa - 1);
                 double totalKasSiswa = kasSiswa.get(nomorSiswa - 1);
 
-                String statusSiswa = (!namaSiswa.isEmpty()) ? "Available" : "Not Available"; // ⚠️ Operator: ternary
+                String statusSiswa = (!namaSiswa.isEmpty()) ? status[0] : status[1]; // ⚠️ Operator: ternary
                 System.out.println("|Status siswa: " + statusSiswa);
 
  //             ✅ ==========[ 1 | Mengubah Nama ke Huruf Kapital ] ========== ✅
