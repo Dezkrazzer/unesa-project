@@ -194,6 +194,7 @@ public class ClassCashManagementApp {
 
 //  🟩 ==========[ CASE 4 | MENAMPILKAN REKAP KAS ]========== 🟩
     public static void tampilkanRekapKas() {
+        try {
         totalKas -= totalPengeluaran;
         if (namaSiswa.isEmpty()) {
             System.out.println("[ERROR] | Belum ada data siswa.");
@@ -236,7 +237,10 @@ public class ClassCashManagementApp {
             System.out.printf("| %-24s | %-45s |\n", "TERBILANG:", kasDalamNominal + " Rupiah");
             System.out.println("|==========================================================================|");
         }
+    } catch (ArrayIndexOutOfBoundsException e) {
+        System.out.println("[ERROR] | Index Array diluar batas (kas minus). Coba lagi");
     }
+}
 // 🟥 ==========[ END OF SECTION ]========== 🟥
 
 //  🟩 ==========[ CASE 5 | MENGHAPUS DATA SISWA]========== 🟩
@@ -278,7 +282,7 @@ public class ClassCashManagementApp {
         String kasDalamNominal = konversiAngkaKeNominal((long) totalKas);
         System.out.println("Total Kas terbilang: " + kasDalamNominal + " rupiah");
     } catch (ArrayIndexOutOfBoundsException e) {
-        System.out.println("[ERROR] | Index Array diluar batas. Coba lagi");
+        System.out.println("[ERROR] | Index Array diluar batas (kas minus). Coba lagi");
     }
 }
 //  🟥 ==========[ END OF SECTION ]========== 🟥
