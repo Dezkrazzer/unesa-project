@@ -103,15 +103,16 @@ public class ClassCashManagementApp {
                 return;
             }
 
-            if (namaSiswa.contains(nama.toUpperCase())) { // ⚠️ Manipulasi String: contains
-                System.out.println("[WARNING] | Nama " + nama + " sudah ada. Ini akan membuat 2 data");
-            }
-
             while (nama.length() < 2 || nama.length() > 10) { // ⚠️ Looping: while
                 System.out.println("[ERROR] | Nama harus memiliki 2 hingga 10 huruf. Silakan coba lagi.");
                 System.out.print("> Masukkan nama siswa: ");
                 nama = scanner.nextLine();
             }
+
+            if (namaSiswa.contains(nama.toUpperCase())) { // ⚠️ Manipulasi String: contains
+                System.out.println("[WARNING] | Nama " + nama + " sudah ada. Ini akan membuat 2 data");
+            }
+
             System.out.println("[INFO] | Nama disimpan dengan huruf kapital: " + nama.toUpperCase());
             System.out.print("> Masukkan jumlah kas " + nama.toUpperCase() + ": ");
             double kas = scanner.nextDouble(); // ⚠️ Type Data: double
