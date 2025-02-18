@@ -87,13 +87,17 @@ public class MovieList {
     }
 
     public void displayInfo() {
-        System.out.println("INFORMASI TIKET BIOSKOP");
-        System.out.println("Judul Film: " + getJudulFilm());
-        System.out.println("Price: " + String.format("Rp%,.0f", getHarga()).replace(",", "."));
-        System.out.println("Show Time: " + getShowTime());
-        System.out.println("Jumlah Tiket: " + getJumlahTiket());
-        System.out.println("No Seat: " + getNoSeat());
-        System.out.println("Diskon: " + (getDiscountRate() * 100) + "%");
-        System.out.println("Total Price: " + String.format("Rp%,.0f", hitungHargaTotal()).replace(",", "."));
+        System.out.println("=====================================");
+        System.out.println("       INFORMASI TIKET BIOSKOP       ");
+        System.out.println("=====================================");
+        System.out.println("Judul Film    : " + getJudulFilm());
+        System.out.println("Harga         : " + String.format("Rp%,.0f", getHarga()).replace(",", "."));
+        System.out.println("Show Time     : " + getShowTime());
+        System.out.println("Jumlah Tiket  : " + getJumlahTiket());
+        System.out.println("No Seat       : " + getNoSeat());
+        System.out.println("Diskon        : " + (getDiscountRate() * 100) + "%");
+        System.out.println("-------------------------------------");
+        System.out.println("Total Harga   : " + String.format("Rp%,.0f", hitungHargaTotal()).replace(",", "."));
+        System.out.println("=====================================");
     }    
 }

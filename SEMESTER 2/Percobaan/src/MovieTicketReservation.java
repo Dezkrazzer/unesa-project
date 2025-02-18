@@ -10,7 +10,7 @@ public class MovieTicketReservation {
 
         for (MovieList movie : movieList) {
             movie.displayInfo();
-            System.out.println("-------------------");
+            System.out.println("\n");
         }
     }
 }
