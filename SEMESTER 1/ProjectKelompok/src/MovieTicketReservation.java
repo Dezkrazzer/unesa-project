@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ClassCashManagementApp {
+public class MovieTicketReservation {
 
 //  🟩 ==========[ DEKLARASI VARIABLE ]========== 🟩
     static ArrayList<String> namaSiswa = new ArrayList<>(); // ⚠️ ArrayList: namaSiswa
