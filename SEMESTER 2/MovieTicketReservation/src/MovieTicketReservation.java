@@ -55,6 +55,7 @@ public class MovieTicketReservation {
         System.out.print("> Pilih menu: ");
     }
 
+    @SuppressWarnings("Convert2Lambda")
     public static void tampilkanJadwal() {
         // Menambahkan jadwal film
         ArrayList<String> avengersTimes = new ArrayList<>();
