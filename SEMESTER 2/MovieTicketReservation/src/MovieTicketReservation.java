@@ -5,18 +5,12 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class MovieTicketReservation {
-
-    // Menggunakan ArrayList MovieList untuk menyimpan data film
+    // Menyimpan data film
     static ArrayList<MovieList> movieList = new ArrayList<>();
-
-    public static void main(String[] args) {
-
-        
+    public static void main(String[] args) { 
         movieFunction.tampilkanJudul();
 
-
         try (Scanner scanner = new Scanner(System.in)) {
-
             while (true) { 
                 movieFunction.tampilkanPilihanMenu(); 
                 int pilihan = scanner.nextInt(); 
