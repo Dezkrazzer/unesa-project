@@ -6,7 +6,7 @@ public class MovieList {
     private ArrayList<String> showTimes;  // Menggunakan ArrayList untuk beberapa waktu tayang
     private double jumlahTiket;
     protected String noSeat;
-    protected double discountRate;
+    protected int auditorium;
 
     public MovieList(
         String judulFilm, 
@@ -14,14 +14,14 @@ public class MovieList {
         ArrayList<String> showTimes,  // Ubah konstruktor agar menerima list waktu tayang
         double jumlahTiket, 
         String noSeat, 
-        double discountRate) {
+        int auditorium) {
 
             this.judulFilm = judulFilm;
             this.harga = harga;
             this.showTimes = showTimes;  // Inisialisasi daftar waktu tayang
             this.jumlahTiket = jumlahTiket;
             this.noSeat = noSeat;
-            this.discountRate = discountRate;
+            this.auditorium = auditorium;
     }
 
     // Getter dan Setter
@@ -69,24 +69,20 @@ public class MovieList {
         this.noSeat = noSeat;
     }
 
-    protected double getDiscountRate() {
-        return discountRate;
+    protected int getAuditorium() {
+        return auditorium;
     }
     
-    protected void setDiscountRate(double discountRate) {
-        if (discountRate >= 0 && discountRate <= 1) {
-            this.discountRate = discountRate;
-        } else {
-            System.out.println("[ERROR] Diskon yang dimasukkan tidak valid");
-        }
+    protected void setAuditorium(int auditorium) {
+        this.auditorium = auditorium;
     }
 
+    
     protected double hitungHargaTotal() {
         double total = harga * jumlahTiket;
-        double discount = total * discountRate;
-        return total - discount;
+        return total;
     }
-
+    /* 
     public void displayInfo() {
         System.out.println("=====================================");
         System.out.println("       INFORMASI TIKET BIOSKOP       ");
@@ -106,5 +102,5 @@ public class MovieList {
         System.out.println("Total Harga   : " + String.format("Rp%,.0f", hitungHargaTotal()).replace(",", "."));
         System.out.println("=====================================");
     }
-
+    */
 }

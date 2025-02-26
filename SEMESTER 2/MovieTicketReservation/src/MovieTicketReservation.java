@@ -43,21 +43,21 @@ public class MovieTicketReservation {
         avengersTimes.add("23.00");
         avengersTimes.add("02.00");
     
-        movieList.add(new MovieList("Avengers: End Game", 50000, avengersTimes, 0, "", 0.1));
+        movieList.add(new MovieList("Avengers: End Game", 50000, avengersTimes, 0, "", 1));
     
         ArrayList<String> minionsTimes = new ArrayList<>();
         minionsTimes.add("10.00");
         minionsTimes.add("12.00");
         minionsTimes.add("15.00");
     
-        movieList.add(new MovieList("Minions", 40000, minionsTimes, 0, "", 0.05));
+        movieList.add(new MovieList("Minions", 40000, minionsTimes, 0, "", 2));
     
         ArrayList<String> lionKingTimes = new ArrayList<>();
         lionKingTimes.add("13.00");
         lionKingTimes.add("16.00");
         lionKingTimes.add("19.00");
     
-        movieList.add(new MovieList("The Lion King", 45000, lionKingTimes, 0, "", 0.08));
+        movieList.add(new MovieList("The Lion King", 45000, lionKingTimes, 0, "", 3));
     
         // Urutkan film berdasarkan waktu tayang terawal
         Collections.sort(movieList, new Comparator<MovieList>() {
