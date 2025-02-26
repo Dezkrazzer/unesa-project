@@ -22,7 +22,7 @@ public class MovieTicketReservation {
         try (Scanner scanner = new Scanner(System.in)) {
 
             while (true) { // ⚠️ Looping: while
-                tampilkanPilihanMenu(); // ⚠️ Function
+                movieFunction.tampilkanPilihanMenu(); // ⚠️ Function
                 int pilihan = scanner.nextInt(); // ⚠️ Type Data: int
 
                 switch (pilihan) { // ⚠️ Percabangan: switch-case
@@ -41,19 +41,7 @@ public class MovieTicketReservation {
         }
     }
 
-    public static void tampilkanPilihanMenu() { // ⚠️ Function
-        System.out.println("\n|==============================================|");
-        System.out.println("|>>               Menu Utama                 <<|");
-        System.out.println("|==============================================|");
-        System.out.printf("| %-2s | %-39s |\n", "1", "Tampilkan Jadwal");
-        System.out.println("|----------------------------------------------|");
-        System.out.printf("| %-2s | %-39s |\n", "2", "Cari Jadwal");
-        System.out.println("|----------------------------------------------|");
-        System.out.println("|==============================================|");
-        System.out.printf("| %-2s | %-39s |\n", "3", "Keluar");
-        System.out.println("|==============================================|");
-        System.out.print("> Pilih menu: ");
-    }
+
 
     @SuppressWarnings("Convert2Lambda")
     public static void tampilkanJadwal() {

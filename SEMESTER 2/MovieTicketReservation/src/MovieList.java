@@ -106,4 +106,5 @@ public class MovieList {
         System.out.println("Total Harga   : " + String.format("Rp%,.0f", hitungHargaTotal()).replace(",", "."));
         System.out.println("=====================================");
     }
+
 }
