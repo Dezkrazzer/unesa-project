@@ -11,23 +11,19 @@ public class MovieTicketReservation {
 
     public static void main(String[] args) {
 
-        //      🟩 ==========[ NAMA APLIKASI ]========== 🟩
-        System.out.println("╔==============================================╗");
-        System.out.println("|>>>                                        <<<|");
-        System.out.println("|>>             Aplikasi Bioskop             <<|");
-        System.out.println("|>>>                                        <<<|");
-        System.out.println("╚==============================================╝");
+        
+        movieFunction.tampilkanJudul();
 
-        //  🟩 ==========[ LOOPING (WHILE) ]========== 🟩
+
         try (Scanner scanner = new Scanner(System.in)) {
 
-            while (true) { // ⚠️ Looping: while
-                movieFunction.tampilkanPilihanMenu(); // ⚠️ Function
-                int pilihan = scanner.nextInt(); // ⚠️ Type Data: int
+            while (true) { 
+                movieFunction.tampilkanPilihanMenu(); 
+                int pilihan = scanner.nextInt(); 
 
-                switch (pilihan) { // ⚠️ Percabangan: switch-case
-                    case 1 -> tampilkanJadwal(); // Menampilkan jadwal
-                    case 2 -> cariTiket(scanner); // Memesan tiket
+                switch (pilihan) { 
+                    case 1 -> tampilkanJadwal(); 
+                    case 2 -> cariTiket(scanner); 
                     case 3 -> {
                         System.out.println("Terima kasih, keluar dari aplikasi.");
                         return; // Keluar dari aplikasi

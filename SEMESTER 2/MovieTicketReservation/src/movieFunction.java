@@ -12,4 +12,12 @@ public class movieFunction {
         System.out.println("|==============================================|");
         System.out.print("> Pilih menu: ");
     }
+
+    public static void tampilkanJudul() {
+        System.out.println("╔==============================================╗");
+        System.out.println("|>>>                                        <<<|");
+        System.out.println("|>>             Aplikasi Bioskop             <<|");
+        System.out.println("|>>>                                        <<<|");
+        System.out.println("╚==============================================╝");
+    }
 }
