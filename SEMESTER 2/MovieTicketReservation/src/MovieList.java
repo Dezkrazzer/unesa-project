@@ -1,9 +1,7 @@
-import java.util.ArrayList;
-
 public class MovieList {
     private String judulFilm;
     private double harga;
-    private ArrayList<String> showTimes;  // Menggunakan ArrayList untuk beberapa waktu tayang
+    private String showTime; // Sekarang hanya menyimpan satu waktu tayang
     private double jumlahTiket;
     protected String noSeat;
     protected int auditorium;
@@ -11,14 +9,14 @@ public class MovieList {
     public MovieList(
         String judulFilm, 
         double harga, 
-        ArrayList<String> showTimes,  // Ubah konstruktor agar menerima list waktu tayang
+        String showTime,  // Ubah menjadi String tunggal
         double jumlahTiket, 
         String noSeat, 
         int auditorium) {
 
             this.judulFilm = judulFilm;
             this.harga = harga;
-            this.showTimes = showTimes;  // Inisialisasi daftar waktu tayang
+            this.showTime = showTime;  // Inisialisasi satu waktu tayang saja
             this.jumlahTiket = jumlahTiket;
             this.noSeat = noSeat;
             this.auditorium = auditorium;
@@ -45,12 +43,12 @@ public class MovieList {
         }
     }
 
-    public ArrayList<String> getShowTimes() {
-        return showTimes;
+    public String getShowTime() { // Perubahan disini
+        return showTime;
     }
 
-    public void setShowTimes(ArrayList<String> showTimes) {
-        this.showTimes = showTimes;
+    public void setShowTime(String showTime) { // Perubahan disini
+        this.showTime = showTime;
     }
 
     public double getJumlahTiket() {
@@ -77,10 +75,8 @@ public class MovieList {
         this.auditorium = auditorium;
     }
 
-    
     protected double hitungHargaTotal() {
-        double total = harga * jumlahTiket;
-        return total;
+        return harga * jumlahTiket;
     }
     /* 
     public void displayInfo() {
