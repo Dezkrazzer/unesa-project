@@ -20,6 +20,7 @@ public class MovieTicketReservation {
                     case 2 -> cariTiket(scanner); 
                     case 3 -> {
                         System.out.println("Terima kasih, keluar dari aplikasi.");
+                        System.out.println("Credits: Lazuardi Akbar (24111814119)");
                         return; // Keluar dari aplikasi
                     }
                     default -> System.out.println("[ERROR] | Pilihanmu tidak valid, coba lagi.");
