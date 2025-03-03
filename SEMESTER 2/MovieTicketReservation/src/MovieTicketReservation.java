@@ -13,10 +13,30 @@ public class MovieTicketReservation {
     }
 
     private static void initializeMovieList() {
-        movieList.add(new MovieList("The Conjuring: The Devil Made Me Do It", 50000, "10:00", 0, "", 2));
-        movieList.add(new MovieList("The Conjuring: The Devil Made Me Do It", 50000, "12:00", 0, "", 2));
-        movieList.add(new MovieList("Minions", 40000, "10:00", 0, "", 2));
-        movieList.add(new MovieList("Minions", 40000, "12:00", 0, "", 2));
+        // DATA FILM STUDIO 1
+        movieList.add(new MovieList("Minions", 40000, "10:00", 0, "", 1));
+        movieList.add(new MovieList("Interstellar", 40000, "12:00", 0, "", 1));
+        movieList.add(new MovieList("Avengers: Endgame", 40000, "14:00", 0, "", 1));
+        movieList.add(new MovieList("Spiderman: Far From Home", 40000, "16:00", 0, "", 1));
+        movieList.add(new MovieList("The Lion King", 40000, "18:00", 0, "", 1));
+        movieList.add(new MovieList("Yowis Ben 3", 40000, "20:00", 0, "", 1));
+        movieList.add(new MovieList("Dilan 1990", 40000, "22:00", 0, "", 1));
+        // DATA FILM STUDIO 2
+        movieList.add(new MovieList("The Lion King", 40000, "10:00", 0, "", 2));
+        movieList.add(new MovieList("Dilan 1990", 40000, "12:00", 0, "", 2));
+        movieList.add(new MovieList("Yowis Ben 3", 40000, "14:00", 0, "", 2));
+        movieList.add(new MovieList("Avengers: Endgame", 40000, "16:00", 0, "", 2));
+        movieList.add(new MovieList("Minions", 40000, "18:00", 0, "", 2));
+        movieList.add(new MovieList("Spiderman: Far From Home", 40000, "20:00", 0, "", 2));
+        movieList.add(new MovieList("Interstellar", 40000, "22:00", 0, "", 2));
+        // DATA FILM STUDIO 3
+        movieList.add(new MovieList("Yowis Ben 3", 40000, "10:00", 0, "", 3));
+        movieList.add(new MovieList("The Lion King", 40000, "12:00", 0, "", 3));
+        movieList.add(new MovieList("Minions", 40000, "14:00", 0, "", 3));
+        movieList.add(new MovieList("Interstellar", 40000, "16:00", 0, "", 3));
+        movieList.add(new MovieList("Avengers: Endgame", 40000, "18:00", 0, "", 3));
+        movieList.add(new MovieList("Spiderman: Far From Home", 40000, "20:00", 0, "", 3));
+        movieList.add(new MovieList("Dilan 1990", 40000, "22:00", 0, "", 3));
     }
 
     public static void main(String[] args) { 
