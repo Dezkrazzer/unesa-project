@@ -120,6 +120,6 @@ public class MovieTicketReservation {
         System.out.println("Waktu      : " + filmYangDipilih.getShowTime());
         System.out.println("Jumlah Tiket: " + jumlahTiket);
         System.out.println("Total Harga: Rp" + String.format("%,.0f", totalHarga).replace(",", "."));
-        System.out.println("\nTerima kasih telah memesan tiket!");
+        System.out.println("\nTerima kasih telah memesan tiket!!");
     }
 }
