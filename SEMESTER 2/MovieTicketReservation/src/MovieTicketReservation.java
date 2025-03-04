@@ -9,6 +9,13 @@ public class MovieTicketReservation {
     // Menyimpan data film
     static ArrayList<MovieList> movieList = new ArrayList<>();
 
+    private static final int ROWS = 6; // Jumlah baris kursi (A-F)
+    private static final int COLS = 8; // Jumlah kolom kursi (1-8)
+    private static final char[] ROW_LABELS = {'A', 'B', 'C', 'D', 'E', 'F'}; // Label baris
+
+    private static final ArrayList<SeatStatus> seatList = new ArrayList<>();
+    private static final ArrayList<MovieList> myTickets = new ArrayList<>();
+
     static {
         initializeMovieList();
     }
@@ -50,8 +57,9 @@ public class MovieTicketReservation {
 
                 switch (pilihan) { 
                     case 1 -> tampilkanJadwal(); 
-                    case 2 -> cariTiket(scanner); 
-                    case 3 -> {
+                    case 2 -> cariTiket(scanner, movieList);
+                    case 3 -> lihatTiketSaya();
+                    case 4 -> {
                         System.out.println("Terima kasih, keluar dari aplikasi.");
                         System.out.println("Credits: Lazuardi Akbar (24111814119)");
                         return;
@@ -110,50 +118,67 @@ public class MovieTicketReservation {
     }
 
 
-    public static void cariTiket(Scanner scanner) {
+    public static void cariTiket(Scanner scanner, ArrayList<MovieList> movieList) {
         System.out.print("Masukkan nama film yang ingin dicari: ");
-        scanner.nextLine();  
+        scanner.nextLine();
         String filmYangDicari = scanner.nextLine();
-    
+
         ArrayList<MovieList> hasilPencarian = new ArrayList<>();
         for (MovieList movie : movieList) {
             if (movie.getJudulFilm().equalsIgnoreCase(filmYangDicari)) {
                 hasilPencarian.add(movie);
             }
         }
-    
+
         if (hasilPencarian.isEmpty()) {
             System.out.println("[ERROR] | Film tidak ditemukan!");
             return;
         }
-    
-        // Menampilkan semua waktu tayang yang tersedia
+
         System.out.println("\nFilm yang ditemukan: " + filmYangDicari);
         System.out.println("Harga per tiket: Rp" + String.format("%,.0f", hasilPencarian.get(0).getHarga()).replace(",", "."));
-        
+
         for (int i = 0; i < hasilPencarian.size(); i++) {
             System.out.println((i + 1) + ". " + hasilPencarian.get(i).getShowTime());
         }
 
-        // Memilih waktu tayang
         System.out.print("Pilih waktu tayang (nomor): ");
         int waktuPilihan = scanner.nextInt();
-    
+
         if (waktuPilihan < 1 || waktuPilihan > hasilPencarian.size()) {
             System.out.println("[ERROR] | Pilihan tidak valid.");
             return;
         }
 
         MovieList filmYangDipilih = hasilPencarian.get(waktuPilihan - 1);
-    
-        // Meminta input untuk jumlah tiket yang ingin dipesan
-        int jumlahTiket = 0;
+        String scheduleKey = filmYangDipilih.getJudulFilm() + " - " + filmYangDipilih.getShowTime();
+
+        // Cek apakah jadwal ini sudah ada dalam seatList
+        SeatStatus seatStatus = null;
+        for (SeatStatus s : seatList) {
+            if (s.jadwal.equals(scheduleKey)) {
+                seatStatus = s;
+                break;
+            }
+        }
+
+        // Jika tidak ditemukan, buat yang baru
+        if (seatStatus == null) {
+            seatStatus = new SeatStatus(scheduleKey);
+            seatList.add(seatStatus);
+        }
+
+        char[][] seats = seatStatus.seats; // Ambil status kursi dari jadwal yang dipilih
+
+        int jumlahTiket;
         while (true) {
             System.out.print("Masukkan jumlah tiket yang ingin dibeli: ");
             try {
                 jumlahTiket = scanner.nextInt();
                 if (jumlahTiket <= 0) {
                     System.out.println("[ERROR] | Jumlah tiket harus lebih besar dari 0.");
+                } else if (jumlahTiket > (ROWS * COLS)) {
+                    System.out.println("[ERROR] | Jumlah tiket melebihi kapasitas bioskop.");
                 } else {
                     break;
                 }
@@ -162,19 +187,115 @@ public class MovieTicketReservation {
                 scanner.next();
             }
         }
-    
-        // Memperbarui jumlah tiket yang tersedia
-        filmYangDipilih.setJumlahTiket(jumlahTiket);
-    
-        // Menghitung total harga
+
+        tampilkanKursi(seats);
+
+        StringBuilder kursiTerpilih = new StringBuilder();
+        for (int i = 0; i < jumlahTiket; i++) {
+            while (true) {
+                System.out.print("Pilih kursi untuk tiket ke-" + (i + 1) + " (contoh: A4): ");
+                String pilihanKursi = scanner.next().toUpperCase();
+
+                if (pilihanKursi.length() < 2 || pilihanKursi.length() > 3) {
+                    System.out.println("[ERROR] | Format kursi tidak valid. Gunakan format seperti A4.");
+                    continue;
+                }
+
+                char barisChar = pilihanKursi.charAt(0);
+                int barisIndex = -1;
+                for (int j = 0; j < ROW_LABELS.length; j++) {
+                    if (ROW_LABELS[j] == barisChar) {
+                        barisIndex = j;
+                        break;
+                    }
+                }
+
+                if (barisIndex == -1) {
+                    System.out.println("[ERROR] | Baris tidak valid.");
+                    continue;
+                }
+
+                int kolomIndex;
+                try {
+                    kolomIndex = Integer.parseInt(pilihanKursi.substring(1)) - 1;
+                } catch (NumberFormatException e) {
+                    System.out.println("[ERROR] | Nomor kursi tidak valid.");
+                    continue;
+                }
+
+                if (kolomIndex < 0 || kolomIndex >= COLS) {
+                    System.out.println("[ERROR] | Nomor kursi tidak valid.");
+                    continue;
+                }
+
+                if (seats[barisIndex][kolomIndex] == 'X') {
+                    System.out.println("[ERROR] | Kursi sudah dipesan, pilih yang lain.");
+                } else {
+                    seats[barisIndex][kolomIndex] = 'X';
+                    if (kursiTerpilih.length() > 0) {
+                        kursiTerpilih.append("; ");
+                    }
+                    kursiTerpilih.append(pilihanKursi);
+                    break;
+                }
+            }
+        }
+
+        tampilkanKursi(seats);
+
+        // Simpan nomor kursi ke dalam MovieList
+        filmYangDipilih.setNoSeat(kursiTerpilih.toString());
+
         double totalHarga = filmYangDipilih.hitungHargaTotal();
-        
-        // Menampilkan informasi pemesanan tiket
+
         System.out.println("\nPemesanan Tiket");
         System.out.println("Film       : " + filmYangDipilih.getJudulFilm());
+        System.out.println("Studio      : " + filmYangDipilih.getAuditorium());
         System.out.println("Waktu      : " + filmYangDipilih.getShowTime());
         System.out.println("Jumlah Tiket: " + jumlahTiket);
+        System.out.println("Nomor Kursi : " + kursiTerpilih);
         System.out.println("Total Harga: Rp" + String.format("%,.0f", totalHarga).replace(",", "."));
         System.out.println("\nTerima kasih telah memesan tiket!!");
+
+        myTickets.add(new MovieList(filmYangDipilih.getJudulFilm(), filmYangDipilih.getHarga(), 
+        filmYangDipilih.getShowTime(), jumlahTiket, filmYangDipilih.getNoSeat(), 
+        filmYangDipilih.getAuditorium()));
+    }
+
+    public static void tampilkanKursi(char[][] seats) {
+        System.out.println("\nLAYAR BIOSKOP");
+        System.out.println("=========================");
+        for (int i = ROWS - 1; i >= 0; i--) {
+            System.out.print(ROW_LABELS[i] + "  ");
+            for (int j = 0; j < COLS; j++) {
+                System.out.print("[" + seats[i][j] + "] ");
+            }
+            System.out.println();
+        }
+        System.out.print("    ");
+        for (int j = 1; j <= COLS; j++) {
+            System.out.printf("%-4d", j);
+        }
+        System.out.println();
+    }
+
+    public static void lihatTiketSaya() {
+        if (myTickets.isEmpty()) {
+            System.out.println("\nAnda belum memiliki tiket.");
+            return;
+        }
+    
+        System.out.println("\n📌 Tiket yang telah Anda pesan:");
+        System.out.println("========================================");
+        for (int i = 0; i < myTickets.size(); i++) {
+            MovieList tiket = myTickets.get(i);
+            System.out.println((i + 1) + ". Film: " + tiket.getJudulFilm());
+            System.out.println("   Studio: " + tiket.getAuditorium());
+            System.out.println("   Waktu : " + tiket.getShowTime());
+            System.out.println("   Kursi : " + tiket.getNoSeat());
+            System.out.println("   Jumlah Tiket: " + tiket.getJumlahTiket());
+            System.out.println("   Total Harga : Rp" + String.format("%,.0f", tiket.hitungHargaTotal()).replace(",", "."));
+            System.out.println("========================================");
+        }
     }
 }

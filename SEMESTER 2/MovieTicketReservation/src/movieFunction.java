@@ -7,8 +7,10 @@ public class movieFunction {
         System.out.println("|----------------------------------------------|");
         System.out.printf("| %-2s | %-39s |\n", "2", "Cari Jadwal");
         System.out.println("|----------------------------------------------|");
+        System.out.printf("| %-2s | %-39s |\n", "3", "Tiket Saya");
+        System.out.println("|----------------------------------------------|");
         System.out.println("|==============================================|");
-        System.out.printf("| %-2s | %-39s |\n", "3", "Keluar");
+        System.out.printf("| %-2s | %-39s |\n", "4", "Keluar");
         System.out.println("|==============================================|");
         System.out.print("> Pilih menu: ");
     }
